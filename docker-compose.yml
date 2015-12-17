@@ -1,0 +1,31 @@
+consul:
+  image: progrium/consul
+  name: "consul"
+  hostname: "consul"
+  command: "-server -bootstrap -ui-dir /ui"
+  ports:
+    - 8300:8300
+    - 8400:8400
+    - 8500:8500
+    - "8600:53/udp"
+  volumes_from:
+    - consul_data
+
+consul_data:
+  image: cogniteev/echo
+  command: echo 'Data Container for PostgreSQL'
+  volumes:
+    - /data
+
+vault:
+  dockerfile: ./Dockerfile
+  build: './'
+  command: "-config=/config/consul.hcl"
+  cap_add: "IPC_LOCK"
+  ports:
+    - 8200:8200
+  volumes:
+    - /etc/ssl/certs:/etc/ssl/certs
+    - /home/docker-user/config:/config
+  external_links:
+    - vault_consul_1:consul
