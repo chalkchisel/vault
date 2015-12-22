@@ -1,6 +1,6 @@
-backend "consul" {
-  address = "localhost:8500"
-  path = "fs-vault"
+backend "etcd" {
+  address = "192.168.0.4:4001"
+  path = "fs-vault/"
 }
 
 listener "tcp" {
