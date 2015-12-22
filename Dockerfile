@@ -12,4 +12,4 @@ ENV VAULT_ADDR "http://127.0.0.1:8200"
 ADD config /config
 
 ENTRYPOINT ["/bin/vault"]
-CMD ["server", "-config=/config/consul.hcl"]
+CMD ["server", "-config=/config/etcd.hcl"]
