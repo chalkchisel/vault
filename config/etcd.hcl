@@ -1,7 +1,7 @@
 backend "etcd" {
   address = "http://192.168.0.4:2379,http://192.168.0.5:2379,http://192.168.0.6:2379"
   path = "fs-vault/"
-  advertise_addr = "127.0.0.1"
+  advertise_addr = "http://127.0.0.1:8200"
 }
 
 listener "tcp" {
