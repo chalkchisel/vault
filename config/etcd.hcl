@@ -1,5 +1,5 @@
 backend "etcd" {
-  address = "192.168.0.4:4001"
+  address = "http://192.168.0.4:4001"
   path = "fs-vault/"
 }
 
