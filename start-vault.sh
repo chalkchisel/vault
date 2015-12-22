@@ -1,6 +1,8 @@
 #!/bin/sh
 
 
+mkdir -p /config
+
 cat <<EOF > /config/etcd.hcl
 backend "etcd" {
   address = "$ETCD_ADDRESSES"
