@@ -9,7 +9,6 @@ RUN cd /bin && unzip /tmp/vault.zip && chmod +x /bin/vault && rm /tmp/vault.zip
 EXPOSE 8200
 ENV VAULT_ADDR "http://127.0.0.1:8200"
 
-ADD config /config
 ADD start-vault.sh /bin/start-vault.sh
 
 ENTRYPOINT ["/bin/start-vault.sh"]
